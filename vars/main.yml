@@ -1,0 +1,5 @@
+---
+dashy_user: dashy
+dashy_group: dashy
+dashy_user_comment: "Dashy Service Account"
+dashy_user_shell: "/usr/sbin/nologin"

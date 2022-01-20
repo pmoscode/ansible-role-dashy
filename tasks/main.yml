@@ -1,0 +1,60 @@
+---
+#- name: Ensure Dashy group exists
+#  group:
+#    name: "{{ dashy_group }}"
+#    state: present
+#
+#- name: Ensure Dashy user exists
+#  user:
+#    name: "{{ dashy_user }}"
+#    comment: "{{ dashy_user_comment }}"
+#    shell: "{{ dashy_user_shell }}"
+#    group: "{{ dashy_group }}"
+#    state: present
+
+- name: Clone Dashy repository
+  git:
+    force: yes
+    repo: https://github.com/Lissy93/dashy.git
+    clone: yes
+    depth: 1
+    dest: "{{ dashy_install_dir }}"
+    version: "{{ dashy_version }}"
+
+- name: Copy settings
+  template:
+    src: dashy_conf.yml.j2
+    dest: "{{ dashy_install_dir }}/public/conf.yml"
+
+- name: Install dependencies
+  yarn:
+    path: "{{ dashy_install_dir }}"
+
+- name: Build project
+  command: yarn build
+  args:
+    chdir: "{{ dashy_install_dir }}"
+
+- name: Create rc.local file
+  file:
+    path: /etc/rc.local
+    owner: root
+    group: root
+    mode: +x
+    state: touch
+
+- name: Add starting command to rc.local
+  lineinfile:
+    path: /etc/rc.local
+    line: "{{ item }}"
+  loop:
+    - "#!/bin/bash"
+    - "cd {{ dashy_install_dir }} && PORT={{ dashy_server_port }} yarn start &"
+    - "exit 0"
+
+- name: Start RC-Local service
+  systemd:
+    state: restarted
+    name: rc-local
+    daemon_reload: yes
+    enabled: yes

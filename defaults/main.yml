@@ -13,12 +13,12 @@ dashy_page_title: Dashy
 dashy_page_footer_text:
 dashy_page_logo:
 dashy_page_description: Welcome to your new dashboard!
-dashy_page_nav_links: [ ]
+dashy_page_nav_links: []
 #  - title: GitHub
 #    path: https://github.com/Lissy93/dashy
 #  - title: Documentation
 #    path: https://dashy.to/docs
-dashy_page_sections: [ ]
+dashy_page_sections: []
 #  - name: Getting Started
 #    icon: fas fa-rocket
 #    items:

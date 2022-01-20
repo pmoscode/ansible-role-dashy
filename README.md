@@ -27,7 +27,7 @@ Role Variables
 | dashy_page_nav_links          | []                             | See:  https://github.com/Lissy93/dashy/blob/master/docs/configuring.md#pageinfonavlinks-optional                        |
 | dashy_page_sections           | []                             | See:  https://github.com/Lissy93/dashy/blob/master/docs/configuring.md#section                                          |
 
-Dependencies0
+Dependencies
 ------------
 
 This role depends on:

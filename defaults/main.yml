@@ -3,14 +3,14 @@ dashy_version: 1.9.7
 dashy_install_dir: /opt/dashy
 dashy_server_port: 8080
 dashy_app_language: de-de
-dashy_app_startingView: default
-dashy_app_statusCheck: false
-dashy_app_allowConfigEdit: true
-dashy_app_showSplashScreen: false
-dashy_app_disableUpdateChecks: false
+dashy_app_starting_view: default
+dashy_app_status_check: false
+dashy_app_allow_config_edit: true
+dashy_app_show_splash_screen: false
+dashy_app_disable_update_checks: false
 dashy_app_theme: one-dark
 dashy_page_title: Dashy
-dashy_page_footerText:
+dashy_page_footer_text:
 dashy_page_logo:
 dashy_page_description: Welcome to your new dashboard!
 dashy_page_nav_links: []

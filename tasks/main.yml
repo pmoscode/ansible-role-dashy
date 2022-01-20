@@ -25,15 +25,19 @@
   template:
     src: dashy_conf.yml.j2
     dest: "{{ dashy_install_dir }}/public/conf.yml"
+    mode: 0644
+  register: copy_output
 
 - name: Install dependencies
   yarn:
     path: "{{ dashy_install_dir }}"
+  register: install_output
 
 - name: Build project
   command: yarn build
   args:
     chdir: "{{ dashy_install_dir }}"
+  when: copy_output.changed || install_output.changed
 
 - name: Create rc.local file
   file:

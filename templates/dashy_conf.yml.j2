@@ -3,8 +3,8 @@
 pageInfo:
   title: {{ dashy_page_title }}
   description: {{ dashy_page_description }}
-{% if dashy_page_footerText  %}
-  footerText: {{ dashy_page_footerText }}
+{% if dashy_page_footer_text  %}
+  footerText: {{ dashy_page_footer_text }}
 {% endif %}
 {% if dashy_page_logo  %}
   logo: {{ dashy_page_logo }}
@@ -17,11 +17,11 @@ pageInfo:
 # Optional app settings and configuration
 appConfig:
   language: {{ dashy_app_language }}
-  startingView: {{ dashy_app_startingView }}
-  statusCheck: {{ dashy_app_statusCheck }}
-  allowConfigEdit: {{ dashy_app_allowConfigEdit }}
-  showSplashScreen: {{ dashy_app_showSplashScreen }}
-  disableUpdateChecks: {{ dashy_app_disableUpdateChecks }}
+  startingView: {{ dashy_app_starting_view }}
+  statusCheck: {{ dashy_app_status_check }}
+  allowConfigEdit: {{ dashy_app_allow_config_edit }}
+  showSplashScreen: {{ dashy_app_show_splash_screen }}
+  disableUpdateChecks: {{ dashy_app_disable_update_checks }}
   theme: {{ dashy_app_theme }}
 
 # Main content - An array of sections, each containing an array of items

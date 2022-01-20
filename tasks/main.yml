@@ -14,9 +14,9 @@
 
 - name: Clone Dashy repository
   git:
-    force: yes
+    force: true
     repo: https://github.com/Lissy93/dashy.git
-    clone: yes
+    clone: true
     depth: 1
     dest: "{{ dashy_install_dir }}"
     version: "{{ dashy_version }}"
@@ -60,5 +60,5 @@
   systemd:
     state: restarted
     name: rc-local
-    daemon_reload: yes
-    enabled: yes
+    daemon_reload: true
+    enabled: true

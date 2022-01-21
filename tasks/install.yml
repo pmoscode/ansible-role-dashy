@@ -1,0 +1,11 @@
+---
+- name: Install dependencies
+  yarn:
+    path: "{{ dashy_install_dir }}"
+  register: install_output
+
+- name: Build project
+  command: yarn build
+  args:
+    chdir: "{{ dashy_install_dir }}"
+  when: copy_output.changed || install_output.changed

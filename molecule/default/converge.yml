@@ -8,4 +8,4 @@
         nodejs_version: nodejs-v14x
     - role: oefenweb.yarn
     - role: geerlingguy.git
-    - role: ansible-role-dashy
+    - role: pmoscode.dashy

@@ -8,4 +8,4 @@
   command: yarn build
   args:
     chdir: "{{ dashy_install_dir }}"
-  when: copy_output.changed || install_output.changed
+  when: copy_output.changed or install_output.changed

@@ -5,8 +5,11 @@
   tasks:
   - name: Install netstat
     package:
-      name: net-tools
+      name: "{{ item }}"
       state: present
+    loop:
+      - procps
+      - net-tools
 
   - name: Get all listen on ports
     listen_ports_facts:

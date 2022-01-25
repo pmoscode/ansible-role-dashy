@@ -1,10 +1,28 @@
 ---
-# This is an example playbook to execute Ansible tests.
-
 - name: Verify
   hosts: all
   gather_facts: false
   tasks:
-  - name: Example assertion
-    assert:
-      that: true
+  - name: Install netstat
+    package:
+      name: net-tools
+      state: present
+
+  - name: Get all listen on ports
+    listen_ports_facts:
+
+  - name: Get current port status
+    set_fact:
+      port_listen: "{{ ansible_facts.tcp_listen | map(attribute='port') | unique | length }}"
+
+  - name: Start server
+    shell: cd /opt/dashy && PORT=8080 yarn start &
+    when: port_listen == "0"
+
+  - name: Check that webserver is running and returns status 200
+    uri:
+      url: http://localhost:8080
+    register: out
+    until: out.status == 200
+    retries: 5
+    delay: 5

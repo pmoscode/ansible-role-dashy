@@ -3,7 +3,7 @@
   hosts: all
   gather_facts: false
   tasks:
-  - name: Install netstat
+  - name: Install testing dependencies
     package:
       name: "{{ item }}"
       state: present

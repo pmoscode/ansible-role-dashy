@@ -1,17 +1,4 @@
 ---
-#- name: Ensure Dashy group exists
-#  group:
-#    name: "{{ dashy_group }}"
-#    state: present
-#
-#- name: Ensure Dashy user exists
-#  user:
-#    name: "{{ dashy_user }}"
-#    comment: "{{ dashy_user_comment }}"
-#    shell: "{{ dashy_user_shell }}"
-#    group: "{{ dashy_group }}"
-#    state: present
-
 - name: Clone Dashy repository
   git:
     force: true
